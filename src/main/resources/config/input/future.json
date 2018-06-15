@@ -1,0 +1,262 @@
+[
+  {
+    "ref": 1,
+    "fieldName": "RECORD_CODE",
+    "startIdx": 0,
+    "length": 3,
+    "type": "String"
+  },
+  {
+    "ref": 2,
+    "fieldName": "CLIENT_TYPE",
+    "startIdx": 3,
+    "length": 4,
+    "type": "String"
+  },
+  {
+    "ref": 3,
+    "fieldName": "CLIENT_NUMBER",
+    "startIdx": 7,
+    "length": 4,
+    "type": "Long"
+  },
+  {
+    "ref": 4,
+    "fieldName": "ACCOUNT_NUMBER",
+    "startIdx": 11,
+    "length": 4,
+    "type": "Long"
+  },
+  {
+    "ref": 5,
+    "fieldName": "SUBACCOUNT_NUMBER",
+    "startIdx": 15,
+    "length": 4,
+    "type": "Long"
+  },
+  {
+    "ref": 6,
+    "fieldName": "OPPOSITE_PARTY_CODE",
+    "startIdx": 19,
+    "length": 6,
+    "type": "String"
+  },
+  {
+    "ref": 7,
+    "fieldName": "PRODCUT_GROUP_CODE",
+    "startIdx": 25,
+    "length": 2,
+    "type": "String"
+  },
+  {
+    "ref": 8,
+    "fieldName": "EXCHANGE_CODE",
+    "startIdx": 27,
+    "length": 4,
+    "type": "String"
+  },
+  {
+    "ref": 9,
+    "fieldName": "SYMBOL",
+    "startIdx": 31,
+    "length": 6,
+    "type": "String"
+  },
+  {
+    "ref": 11,
+    "fieldName": "EXPIRATION_DATE",
+    "startIdx": 37,
+    "length": 8,
+    "type": "Date",
+    "format": {
+      "type": "SimpleDateFormat",
+      "value": "yyyyMMdd"
+    }
+  },
+  {
+    "ref": 13,
+    "fieldName": "CURRENCY_CODE",
+    "startIdx": 45,
+    "length": 3,
+    "type": "String"
+  },
+  {
+    "ref": 14,
+    "fieldName": "MOVEMENT_CODE",
+    "startIdx": 48,
+    "length": 2,
+    "type": "String"
+  },
+  {
+    "ref": 15,
+    "fieldName": "BUY_SELL_CODE",
+    "startIdx": 50,
+    "length": 1,
+    "type": "String"
+  },
+  {
+    "ref": 68,
+    "fieldName": "QUANTITY_LONG_SIGN",
+    "startIdx": 51,
+    "length": 1,
+    "type": "String"
+  },
+  {
+    "ref": 16,
+    "fieldName": "QUANTITY_LONG",
+    "startIdx": 52,
+    "length": 10,
+    "type": "Long"
+  },
+  {
+    "ref": 68,
+    "fieldName": "QUANTITY_SHORT_SIGN",
+    "startIdx": 62,
+    "length": 1,
+    "type": "String"
+  },
+  {
+    "ref": 16,
+    "fieldName": "QUANTITY_SHORT",
+    "startIdx": 63,
+    "length": 10,
+    "type": "Long"
+  },
+  {
+    "ref": 17,
+    "fieldName": "EXCH/BROKER_FEE/DEC",
+    "startIdx": 73,
+    "length": 12,
+    "type": "Double",
+    "format": {
+      "type": "Double",
+      "value": "2"
+    }
+  },
+  {
+    "ref": 18,
+    "fieldName": "EXCH/BROKER_FEE_D_C",
+    "startIdx": 85,
+    "length": 1,
+    "type": "String"
+  },
+  {
+    "ref": 17,
+    "fieldName": "EXCH/BROKER_FEE_CUR_CODE",
+    "startIdx": 86,
+    "length": 3,
+    "type": "String"
+  },
+  {
+    "ref": 19,
+    "fieldName": "CLEARING_FEE/DEC",
+    "startIdx": 89,
+    "length": 12,
+    "type": "Double",
+    "format": {
+      "type": "Double",
+      "value": "2"
+    }
+  },
+  {
+    "ref": 18,
+    "fieldName": "CLEARING_FEE_D_C",
+    "startIdx": 101,
+    "length": 1
+  },
+  {
+    "ref": 19,
+    "fieldName": "CLEARING_FEE_CUR_CODE",
+    "startIdx": 102,
+    "length": 3
+  },
+  {
+    "ref": 86,
+    "fieldName": "COMMISSION",
+    "startIdx": 105,
+    "length": 12,
+    "type": "Double",
+    "format": {
+      "type": "Double",
+      "value": "2"
+    }
+  },
+  {
+    "ref": 18,
+    "fieldName": "COMMISSION_D_C",
+    "startIdx": 117,
+    "length": 1
+  },
+  {
+    "ref": 86,
+    "fieldName": "COMMISION_CUR_CODE",
+    "startIdx": 118,
+    "length": 3
+  },
+  {
+    "ref": 34,
+    "fieldName": "TRANSACTION_DATE",
+    "startIdx": 121,
+    "length": 8,
+    "type": "Date",
+    "format": {
+      "type": "SimpleDateFormat",
+      "value": "yyyyMMdd"
+    }
+  },
+  {
+    "ref": 36,
+    "fieldName": "FUTURE_REFERENCE",
+    "startIdx": 129,
+    "length": 6,
+    "type": "Long"
+  },
+  {
+    "ref": 37,
+    "fieldName": "TICKET_NUMBER",
+    "startIdx": 135,
+    "length": 6
+  },
+  {
+    "ref": 38,
+    "fieldName": "EXTERNAL_NUMBER",
+    "startIdx": 141,
+    "length": 6,
+    "type": "Long"
+  },
+  {
+    "ref": 20,
+    "fieldName": "TRANSACTION_PRICE/DEC",
+    "startIdx": 147,
+    "length": 15,
+    "type": "Double",
+    "format": {
+      "type": "Double",
+      "value": "7"
+    }
+  },
+  {
+    "ref": 66,
+    "fieldName": "TRADER_INITIALS",
+    "startIdx": 162,
+    "length": 6
+  },
+  {
+    "ref": 156,
+    "fieldName": "OPPOSITE_TRADER_ID",
+    "startIdx": 168,
+    "length": 7
+  },
+  {
+    "ref": 65,
+    "fieldName": "OPEN_CLOSE_CODE",
+    "startIdx": 175,
+    "length": 1
+  },
+  {
+    "ref": 0,
+    "fieldName": "FILLER",
+    "startIdx": 176,
+    "length": 127
+  }
+]
