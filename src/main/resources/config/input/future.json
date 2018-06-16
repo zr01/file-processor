@@ -43,7 +43,7 @@
   },
   {
     "ref": 7,
-    "fieldName": "PRODCUT_GROUP_CODE",
+    "fieldName": "PRODUCT_GROUP_CODE",
     "startIdx": 25,
     "length": 2,
     "type": "String"
@@ -66,12 +66,7 @@
     "ref": 11,
     "fieldName": "EXPIRATION_DATE",
     "startIdx": 37,
-    "length": 8,
-    "type": "Date",
-    "format": {
-      "type": "SimpleDateFormat",
-      "value": "yyyyMMdd"
-    }
+    "length": 8
   },
   {
     "ref": 13,
@@ -197,12 +192,7 @@
     "ref": 34,
     "fieldName": "TRANSACTION_DATE",
     "startIdx": 121,
-    "length": 8,
-    "type": "Date",
-    "format": {
-      "type": "SimpleDateFormat",
-      "value": "yyyyMMdd"
-    }
+    "length": 8
   },
   {
     "ref": 36,
@@ -252,11 +242,5 @@
     "fieldName": "OPEN_CLOSE_CODE",
     "startIdx": 175,
     "length": 1
-  },
-  {
-    "ref": 0,
-    "fieldName": "FILLER",
-    "startIdx": 176,
-    "length": 127
   }
 ]

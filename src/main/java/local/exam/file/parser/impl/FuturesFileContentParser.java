@@ -23,7 +23,7 @@ import local.exam.file.parser.config.FuturesParserConfig;
  * @author Allan
  *
  */
-public class FuturesFileContentParser implements IFileParser<Map<String, Object>, List<StringBuilder>, FuturesParserConfig[]> {
+public class FuturesFileContentParser implements IFileParser<List<Map<String, Object>>, List<StringBuilder>, FuturesParserConfig[]> {
 
     static final Logger l = LoggerFactory.getLogger(FuturesFileContentParser.class);
 

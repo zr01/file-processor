@@ -2,7 +2,6 @@ package local.exam.file.parser;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.IOException;
@@ -25,7 +24,7 @@ public class FuturesFileContentParserTest {
 
     static final Logger l = LoggerFactory.getLogger(FuturesFileContentParserTest.class);
 
-    IFileParser<Map<String, Object>, List<StringBuilder>, FuturesParserConfig[]> parser = new FuturesFileContentParser();
+    IFileParser<List<Map<String, Object>>, List<StringBuilder>, FuturesParserConfig[]> parser = new FuturesFileContentParser();
 
     // Contents to parse
     String contents = "315CL  432100020001SGXDC FUSGX NK    20100910JPY01B 0000000001 0000000000000000000060DUSD000000000030DUSD000000000000DJPY201008200011920     687766000092600000000             O\n"

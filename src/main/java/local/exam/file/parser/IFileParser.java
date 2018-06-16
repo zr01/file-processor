@@ -1,7 +1,5 @@
 package local.exam.file.parser;
 
-import java.util.List;
-
 import local.exam.exceptions.FileParseException;
 
 /**
@@ -14,5 +12,5 @@ import local.exam.exceptions.FileParseException;
  */
 public interface IFileParser<OBJECT_WRAPPER, CONTENT_TYPE, PARSER_CONFIG> {
 
-    public List<OBJECT_WRAPPER> parseFile(CONTENT_TYPE contents, PARSER_CONFIG config) throws FileParseException;
+    public OBJECT_WRAPPER parseFile(CONTENT_TYPE contents, PARSER_CONFIG config) throws FileParseException;
 }
