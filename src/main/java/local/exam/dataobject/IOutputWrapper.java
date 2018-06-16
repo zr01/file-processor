@@ -12,7 +12,7 @@ import local.exam.exceptions.ContentWrapException;
  * @param <OBJECT_WRAPPER>
  * @param <PARSER_CONFIG>
  */
-public interface IOutputWrapper<LINE_OBJECT, OBJECT_WRAPPER, PARSER_CONFIG> {
+public interface IOutputWrapper<LINE_OBJECT, OBJECT_WRAPPER> {
 
-    public LINE_OBJECT wrap(OBJECT_WRAPPER contents, PARSER_CONFIG config) throws ContentWrapException;
+    public LINE_OBJECT wrap(OBJECT_WRAPPER contents) throws ContentWrapException;
 }

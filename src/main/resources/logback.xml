@@ -1,0 +1,37 @@
+<!DOCTYPE xml>
+<configuration>
+	<appender name="R"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>/var/log/file-processor/file-processor.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>/var/log/file-processor/%d{yyyy-MM-dd}.file-processor.log</fileNamePattern>
+
+			<!-- keep 30 days' worth of history capped at 3GB total size -->
+			<maxHistory>14</maxHistory>
+			<totalSizeCap>20MB</totalSizeCap>
+
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%c{20}|%line]: %m%n</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%c{20}|%line]: %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org.springframework.security" level="warn" />
+	<logger name="org.springframework" level="warn" />
+	<logger name="org.hibernate" level="warn" />
+	<logger name="org.apache" level="warn" />
+	<logger name="local.exam" level="debug" />
+	
+	<root level="info">
+		<appender-ref ref="console" />
+		<appender-ref ref="R" />
+	</root>
+</configuration>

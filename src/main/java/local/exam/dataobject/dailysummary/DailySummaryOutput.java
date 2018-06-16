@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 
 import local.exam.dataobject.IOutputWrapper;
 import local.exam.exceptions.ContentWrapException;
-import local.exam.file.parser.config.FuturesParserConfig;
 
 /**
  * Wraps the parsed data from the Futures file into the DailySummaryOutput as
@@ -36,9 +35,13 @@ import local.exam.file.parser.config.FuturesParserConfig;
  *
  */
 public class DailySummaryOutput
-        implements IOutputWrapper<DailySummaryOutput, Map<String, Object>, FuturesParserConfig[]> {
+        implements IOutputWrapper<DailySummaryOutput, Map<String, Object>> {
 
     static final Logger l = LoggerFactory.getLogger(DailySummaryOutput.class);
+    
+    String[] validateFields = {"CLIENT_TYPE", "CLIENT_NUMBER", "ACCOUNT_NUMBER", "SUBACCOUNT_NUMBER",
+            "EXCHANGE_CODE", "PRODUCT_GROUP_CODE", "SYMBOL", "EXPIRATION_DATE",
+            "QUANTITY_LONG", "QUANTITY_SHORT"};
 
     String clientInformation;
     String productInformation;
@@ -62,15 +65,17 @@ public class DailySummaryOutput
     }
 
     @Override
-    public DailySummaryOutput wrap(Map<String, Object> contents, FuturesParserConfig[] config)
+    public DailySummaryOutput wrap(Map<String, Object> contents)
             throws ContentWrapException {
         try {
             if (contents == null || contents.isEmpty()) {
                 throw new Exception("Invalid parsed data");
             }
-
-            if (config == null || config.length == 0) {
-                throw new Exception("Invalid configuration");
+            
+            for (String validate : validateFields) {
+                if (!contents.containsKey(validate) || contents.get(validate) == null) {
+                    throw new Exception("Missing field for DailySummaryOutput wrap");
+                }
             }
 
             l.trace("Extracting parsed data into daily summary output");

@@ -17,7 +17,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import local.exam.dataobject.dailysummary.DailySummaryOutput;
-import local.exam.file.parser.config.FuturesParserConfig;
 import local.exam.file.processor.impl.DailySummaryProcessor;
 
 public class DailySummaryProcessorTest {
@@ -36,7 +35,7 @@ public class DailySummaryProcessorTest {
 
             // Initialize wrapper mock
             DailySummaryOutput mockWrapper = Mockito.mock(DailySummaryOutput.class);
-            when(mockWrapper.wrap(Mockito.any(Map.class), Mockito.any(FuturesParserConfig[].class)))
+            when(mockWrapper.wrap(Mockito.any(Map.class)))
                 .thenReturn(mockOutput);
             
             // Initialize processor
@@ -52,7 +51,7 @@ public class DailySummaryProcessorTest {
                 contents.add(new HashMap<>());
             }
             
-            StringBuilder output = processor.processContents(contents, new FuturesParserConfig[] {new FuturesParserConfig()});
+            StringBuilder output = processor.processContents(contents);
             assertNotNull(output);
             assertTrue(output.length() > 0);
             l.debug("Output file: {}", output);

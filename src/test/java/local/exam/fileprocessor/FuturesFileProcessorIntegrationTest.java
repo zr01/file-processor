@@ -54,8 +54,8 @@ public class FuturesFileProcessorIntegrationTest {
             List<Map<String, Object>> parsedContents = parser.parseFile(fileContents, config);
             
             // Process file
-            IFileProcessor<StringBuilder, List<Map<String, Object>>, FuturesParserConfig[]> processor = new DailySummaryProcessor();
-            StringBuilder outputFileContent = processor.processContents(parsedContents, config);
+            IFileProcessor<StringBuilder, List<Map<String, Object>>> processor = new DailySummaryProcessor();
+            StringBuilder outputFileContent = processor.processContents(parsedContents);
             
             assertNotNull(outputFileContent);
             assertTrue(outputFileContent.length() > 0);

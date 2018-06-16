@@ -17,6 +17,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import local.exam.exceptions.FileParseException;
 import local.exam.file.parser.config.FuturesParserConfig;
 import local.exam.file.parser.impl.FuturesFileContentParser;
 
@@ -83,5 +84,33 @@ public class FuturesFileContentParserTest {
             l.error("Error in testing parse success due to {}", e.getMessage(), e);
             fail();
         }
+    }
+    
+    @Test(expected = FileParseException.class)
+    public void testIncorrectInputFile() 
+    throws Exception {
+        try {
+            List<StringBuilder> contents = readContents();
+            contents.get(0).insert(0, "FAIL");
+            FuturesParserConfig[] config = readConfig();
+            parser.parseFile(contents, config);
+        } catch (Exception e) {
+            throw e;
+        }
+        
+        fail();
+    }
+    
+    @Test(expected = FileParseException.class)
+    public void testNoConfigFile() 
+    throws Exception {
+        try {
+            List<StringBuilder> contents = readContents();
+            parser.parseFile(contents, null);
+        } catch (Exception e) {
+            throw e;
+        }
+        
+        fail();
     }
 }

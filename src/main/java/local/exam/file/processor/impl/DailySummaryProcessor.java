@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
 
 import local.exam.dataobject.dailysummary.DailySummaryOutput;
 import local.exam.exceptions.FileProcessorException;
-import local.exam.file.parser.config.FuturesParserConfig;
 import local.exam.file.processor.IFileProcessor;
 
 /**
@@ -19,7 +18,7 @@ import local.exam.file.processor.IFileProcessor;
  * @author Allan
  *
  */
-public class DailySummaryProcessor implements IFileProcessor<StringBuilder, List<Map<String, Object>>, FuturesParserConfig[]> {
+public class DailySummaryProcessor implements IFileProcessor<StringBuilder, List<Map<String, Object>>> {
 
     static final Logger l = LoggerFactory.getLogger(DailySummaryProcessor.class);
     
@@ -28,14 +27,14 @@ public class DailySummaryProcessor implements IFileProcessor<StringBuilder, List
     DailySummaryOutput wrapper = new DailySummaryOutput();
     
     @Override
-    public StringBuilder processContents(List<Map<String, Object>> contents, FuturesParserConfig[] config)
+    public StringBuilder processContents(List<Map<String, Object>> contents)
             throws FileProcessorException {
         try {
             Map<String, Map<String, Long>> output = new LinkedHashMap<>();
             // Go through the parsed contents one by one
             for (Map<String, Object> content : contents) {
                 // Wrap the content into an object which we can easily use to group data
-                DailySummaryOutput dsoOutput = wrapper.wrap(content, config);
+                DailySummaryOutput dsoOutput = wrapper.wrap(content);
                 
                 // Create the clientInformation header group
                 if (!output.containsKey(dsoOutput.getClientInformation())) {
@@ -43,9 +42,11 @@ public class DailySummaryProcessor implements IFileProcessor<StringBuilder, List
                     output.put(dsoOutput.getClientInformation(), new LinkedHashMap<>());
                 }
 
-                // Create the productInformation header group per each clientInformation
+                // Create the productInformation header group for each clientInformation
                 Map<String, Long> clientInformation = output.get(dsoOutput.getClientInformation());
                 Long delta = dsoOutput.getQuantityLong() - dsoOutput.getQuantityShort(); // We end up always calculating anyway
+                
+                // Summation of quantityLong - quantityShort per productInformation for each clientInformation
                 if (!clientInformation.containsKey(dsoOutput.getProductInformation())) {
                     // Create new entry of product information
                     clientInformation.put(dsoOutput.getProductInformation(), delta);
